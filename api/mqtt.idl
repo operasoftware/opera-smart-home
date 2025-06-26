@@ -1,0 +1,54 @@
+// Copyright (C) 2025 Opera Norway AS. All rights reserved.
+//
+// This file is an original work developed by Opera Norway AS.
+
+// API for publishing and subscribing to MQTT messages
+[implemented_in="../../desktop/chrome_imports/chrome/browser/extensions/api/mqtt/mqtt_api.h"]
+namespace mqtt {
+  dictionary Subscription {
+    // |topic|: Topic to subscribe to.
+    DOMString topic;
+
+    // |global|: If true the actual mqtt topic will be just the value of topic otherwise it will be opera/{user_defined_prefix}/topic.
+    boolean global;
+  };
+
+  enum PublishMessageResult {
+    Sent,
+    NotSentNotConnected,
+    NotSentIncorrectTopic,
+    NotSentOtherError
+  };
+
+  enum ConnectionState {
+    Disconnected,
+    Connecting,
+    Connected,
+    Reconnecting
+  };
+
+  callback VoidCallback = void();
+  callback PublishMessageResultCallback = void(PublishMessageResult value);
+  callback StringCallback = void(DOMString value);
+  callback ConnectionStateCallback = void(ConnectionState value);
+
+  interface Functions {
+    [supportsPromises] static void publishMessage(
+        DOMString topic,
+        DOMString payload,
+        optional boolean global,
+        PublishMessageResultCallback callback);
+    [supportsPromises] static void subscribe(
+        DOMString topic,
+        optional boolean global,
+        VoidCallback callback);
+    [supportsPromises] static void getConnectionState(
+        ConnectionStateCallback callback);
+    [supportsPromises] static void getTopicPrefix(StringCallback callback);
+  };
+
+  interface Events {
+    static void onMessageReceived(Subscription subcription, DOMString payload);
+    static void onConnectionStateChanged(ConnectionState connectionState);
+  };
+};
