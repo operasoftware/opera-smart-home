@@ -1,0 +1,23 @@
+{
+   "background": {
+      "service_worker": "scripts/service_worker.js",
+      "type": "module"
+   },
+   "description": "Opera GX Smart Home (with extra support for Home Assistant)",
+   "developer": {
+      "name": "Opera Software"
+   },
+   "icons": {
+      "128": "images/icon128.png",
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "512": "images/icon512.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuSmBPuIwaXdUmzA0nqya5AFYPPdqgksY3PaBefCUgKLH6yUedp655z9wGLJMDIcUPzwGiAvLlW5oCmSMnIpRV1l2UZ/jkHVVM9aVi9zKiFzRemhR5754dMMXom2M1vxm7admdFawWmKrdrjm5xIfnQNPUZAY2l85Z8NBv3mw8mzdvbEzCDf2OBo1i8DMqrtsIJjoCoLqtrCXcNRvvSYK0yJ8MbNDemgkvF/bBwL64aL+1XEIb2KeuOKy5z+oyel22t7iZIBapPxG1893csrAzzLqHGOdHewVtC6uGDHgDRv1uNoZfwFTx4j8s1SNesaZDCWiD4X3sMQC7YX6eby+VQIDAQAB",
+   "manifest_version": 3,
+   "name": "Opera GX Smart Home",
+   "permissions": [ "alarms", "mqtt", "palette", "tabs", "activeTab", "storage", "liveWallpaperMetricsPrivate", "panicButtonPrivate", "settingsPrivate"],
+   "incognito": "spanning",
+   "update_url": "https://extension-updates.opera.com/api/omaha/update/",
+   "version": "0.5.5"
+}

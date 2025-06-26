@@ -1,0 +1,11 @@
+{
+   "background": {
+      "service_worker": "scripts/service_worker.js",
+      "type": "module"
+   },
+   "description": "Opera Example MQTT Extension",
+   "manifest_version": 3,
+   "name": "Opera Example MQTT Extension",
+   "permissions": [ "alarms", "mqtt", "tabs", "activeTab", "storage"],
+   "version": "1.0"
+}
