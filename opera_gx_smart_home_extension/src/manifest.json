@@ -19,5 +19,5 @@
    "permissions": [ "alarms", "mqtt", "palette", "tabs", "activeTab", "storage", "liveWallpaperMetricsPrivate", "panicButtonPrivate", "settingsPrivate"],
    "incognito": "spanning",
    "update_url": "https://extension-updates.opera.com/api/omaha/update/",
-   "version": "0.5.5"
+   "version": "0.5.6"
 }

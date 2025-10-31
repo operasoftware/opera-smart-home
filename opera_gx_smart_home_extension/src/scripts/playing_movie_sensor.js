@@ -11,18 +11,17 @@ export default class PlayingMovieSensor extends BinarySensor {
     super('playing_movie', 'Playing movie');
 
     this.movieUrls = [
-      'https?:\/\/(www\.)?netflix\.com\/watch\/\d+', // Netflix
-      'https?:\/\/(www\.)?hulu\.com\/watch\/\d+', // Hulu
-      'https?:\/\/(www\.)?amazon\.com\/gp\/video\/detail\/\w+', // Amazon Prime
-      'https?:\/\/(www\.)?disneyplus\.com\/watch\/\w+', // Disney+
-      'https?:\/\/(www\.)?play\.max\.com\/video\/watch\/.*', // Max
+      /https?:\/\/(www\.)?netflix\.com\/watch\/\d+/, // Netflix
+      /https?:\/\/(www\.)?hulu\.com\/watch\/\d+/, // Hulu
+      /https?:\/\/(www\.)?amazon\.com\/gp\/video\/detail\/\w+/, // Amazon Prime
+      /https?:\/\/(www\.)?disneyplus\.com\/watch\/\w+/, // Disney+
+      /https?:\/\/(www\.)?play\.max\.com\/video\/watch\/.*/, // Max
     ];
   }
 
   _isPlayingMovie(url) {
     for (const regex of this.movieUrls) {
-      const r = new RegExp(regex);
-      if (r.test(url)) return true;
+      if (regex.test(url)) return true;
     }
     return false;
   }
