@@ -60,7 +60,9 @@ Again, if you're a **Home Assistant** user, the **Opera** device will pop up aut
 The solution is based on extensions utilizing a new [MQTT API](./api/README.md) which allows for making topic subscriptions and publishing messages to the MQTT Broker. Based on that the extensions can declare *sensors*, *switches*, *commands*, *triggers*, etc. (see [example](./example_extension/README.md)). The default [Opera GX Smart Home Extension](./opera_gx_smart_home_extension/README.md) is also utilizing the [Home Assistant MQTT Discovery](https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery) protocol to announce the presense of those entities grouped into one device called Opera GX.
 
 ## Security concerns
-Since currently the browser doesn't support secure MQTT (SMQTT) connections, for security reasons, it's better avoid using the browser's MQTT support on untrusted networks like public Wi-Fi. Disabling this feature in your browser settings helps prevent potential attacks such as MQTT broker spoofing. This is especially important when using public internet access points.
+The browser supports both: MQTT and MQTTS (MQTT over TLS) connections. In order to connect via MQTTS, the server's certificate needs to be trusted (i.e. signed by a certificate trusted by Opera's build-in Root Store or by the OS). 
+
+In case of using the non-secure MQTT connection, please note that it's better to disable the MQTT support on untrusted networks like public Wi-Fi. Doing so will help prevent potential attacks such as MQTT broker spoofing. This is especially important when using public internet access points.
 
 ## How to set up new Smart Home
 Read more if want to install any of [MQTT supporting smart home platforms](./smart_home_setup.md).
